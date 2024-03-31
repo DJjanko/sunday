@@ -111,6 +111,13 @@ void KMP(const string& text, const string& vzorec) {
 }
 
 void Sunday(const string& text, const string& vzorec){
+
+    std::vector<unsigned int> BCH(256, vzorec.size() + 1);
+
+    for(int j = 0; j < vzorec.size();j++){
+        int x = vzorec[j];
+        BCH[x] = vzorec.size()-j;
+    }
 }
 
 int main(int argc, const char *const argv[]) {
