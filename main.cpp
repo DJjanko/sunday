@@ -33,7 +33,7 @@ void KMP(const string& text, const string& vzorec) {
      * Za izpis navidezne spremenljivke index uporabite: out << index << ' ';
      */
     int* kmp_next = new int[vzorec.size()];
-    cout << "size: " << vzorec.size() << endl;
+    //cout << "size: " << vzorec.size() << endl;
     for(int i = 0; i< vzorec.size(); i++){
         kmp_next[i] = 0;
     }
@@ -48,13 +48,13 @@ void KMP(const string& text, const string& vzorec) {
                 if(temp_size == 0){
                     kmp_next[i] = 0;
 
-                    cout << "----------------" << endl;
+                    /*cout << "----------------" << endl;
                     cout << "index: "<< i << endl;
                     cout << "size: "<< temp_size << endl;
                     cout << "s1: " << endl;
                     cout << "s2: " << endl;
                     cout << "----------------" << endl;
-                    
+                    */
                     break;
                 }
                 string s1 = "";
@@ -71,25 +71,25 @@ void KMP(const string& text, const string& vzorec) {
                 if(s1 == s2){
                     kmp_next[i] = s1.size();
 
-                    cout << "----------------" << endl;
+                    /*cout << "----------------" << endl;
                     cout << "index: "<< i << endl;
                     cout << "size: "<< temp_size << endl;
                     cout << "s1: " << s1 << endl;
                     cout << "s2: " << s2 << endl;
                     cout << "----------------" << endl;
-                    
+                    */
                     break;
                 }
                 temp_size--;
             }
         }
     }
-    cout << "----------------" << endl;
+    /*cout << "----------------" << endl;
     for(int i= 0; i < vzorec.size(); i++){
         cout << kmp_next[i] << " " ;
     }
     cout <<endl << "----------------" << endl;
-    
+    */
 
     for(int i = 0; i< text.size() - vzorec.size();){
         for(int j = 0; j < vzorec.size();j++){
@@ -118,13 +118,16 @@ void Sunday(const string& text, const string& vzorec){
         int x = vzorec[j];
         BCH[x] = vzorec.size()-j;
     }
-    
-    cout << "----------------" << endl;
-    for(int i= 0; i < vzorec.size(); i++){
-        cout << kmp_next[i] << " " ;
+    /*cout << "-----------------"<< endl;
+
+    cout <<endl << "----------------" << endl;
+
+    for(int i=0;i < BCH.size();i++){
+        cout << char(i) <<": " << BCH[i] << " ";
     }
     cout <<endl << "----------------" << endl;
-    
+    */
+
     for(int i = 0; i < text.size() - vzorec.size();){
         for(int j = 0; j < vzorec.size();j++){
             if(text[i+j] != vzorec[j]){
@@ -142,7 +145,6 @@ void Sunday(const string& text, const string& vzorec){
             }
         }
     }
-    
 }
 
 int main(int argc, const char *const argv[]) {
