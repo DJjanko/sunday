@@ -118,6 +118,13 @@ void Sunday(const string& text, const string& vzorec){
         int x = vzorec[j];
         BCH[x] = vzorec.size()-j;
     }
+    
+    cout << "----------------" << endl;
+    for(int i= 0; i < vzorec.size(); i++){
+        cout << kmp_next[i] << " " ;
+    }
+    cout <<endl << "----------------" << endl;
+    
 }
 
 int main(int argc, const char *const argv[]) {
