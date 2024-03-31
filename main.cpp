@@ -125,6 +125,24 @@ void Sunday(const string& text, const string& vzorec){
     }
     cout <<endl << "----------------" << endl;
     
+    for(int i = 0; i < text.size() - vzorec.size();){
+        for(int j = 0; j < vzorec.size();j++){
+            if(text[i+j] != vzorec[j]){
+
+                i += BCH[text[i+vzorec.size()]];
+                break;
+            }
+            else{
+                if(j == vzorec.size()-1){
+                    out << i << ' ';
+                    out.flush();
+                    i += vzorec.size();
+                    break;
+                }
+            }
+        }
+    }
+    
 }
 
 int main(int argc, const char *const argv[]) {
