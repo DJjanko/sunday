@@ -3,7 +3,12 @@
 #include <fstream>
 #include <iostream>
 #include "vector"
+#include "main.h"
 using namespace std;
+
+int sestej (int a, int b){
+    return a+b;
+}
 
 
 ofstream out;
@@ -182,6 +187,6 @@ int main(int argc, const char *const argv[]) {
         Sunday(text,vzorec);
     }
 
-
+    int x = sestej(1,2);
     return 0;
 }

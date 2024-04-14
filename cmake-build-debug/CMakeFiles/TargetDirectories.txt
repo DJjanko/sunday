@@ -1,3 +1,3 @@
-E:/AlgoritmiVPraksi/vaja02/cmake-build-debug/CMakeFiles/vaja02.dir
-E:/AlgoritmiVPraksi/vaja02/cmake-build-debug/CMakeFiles/edit_cache.dir
-E:/AlgoritmiVPraksi/vaja02/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/janez/2.letnik/SistemskaAdministracija/Naloga02/cmake-build-debug/CMakeFiles/vaja02.dir
+/home/janez/2.letnik/SistemskaAdministracija/Naloga02/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/janez/2.letnik/SistemskaAdministracija/Naloga02/cmake-build-debug/CMakeFiles/rebuild_cache.dir
