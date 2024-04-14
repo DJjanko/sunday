@@ -1,0 +1,34 @@
+name: Deployment
+
+on:
+  workflow_run:
+    workflows: ["27321_test.yml"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    name: Deploy to Docker Hub
+    runs-on: ubuntu-latest
+    needs: 27321_test
+
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Additional steps to package your code into a Docker container
+      # and push it to Docker Hub
+      - name: Build Docker image
+        run: |
+          # Commands to build Docker image
+          docker build -t your-image-name .
+
+      - name: Log in to Docker Hub
+        run: |
+          echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push your-image-name:tag
