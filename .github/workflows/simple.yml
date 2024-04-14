@@ -29,5 +29,5 @@ jobs:
       - name: Run a multi-line script
         run:  |
           echo Hello, World
-          sleep 15
+          sleep 10
           echo Hello again
