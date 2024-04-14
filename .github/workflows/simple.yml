@@ -53,7 +53,17 @@ jobs:
           sudo apt update
           sudo apt install valgrind -y
           echo "Setting up test environment..." >> log.txt
+          
       - name: Run Tests
         run: |
-          # Run the tests
-          echo "Running tests..." >> log.txt
+          # Compile the test_main.c file
+        
+          # Execute the compiled test program
+          ./test_main
+      
+          # Check the contents of result.txt
+          if grep -q "SUCCESS" result.txt; then
+            echo "SUCCESS" >> log.txt
+          else
+            echo "FAILED" >> log.txt
+          fi
