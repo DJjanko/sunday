@@ -60,7 +60,7 @@ jobs:
       - name: Run Tests
         run: |
           # Compile the test_main.c file
-        
+          make
           # Execute the compiled test program
           ./test_main
       
