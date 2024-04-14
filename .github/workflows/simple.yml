@@ -1,36 +1,53 @@
+name: Check for File and Run Tests
 
-#Github actions demo
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-
-# This workflow contains a single job called "build"
 jobs:
-  # The build job runs on an ubuntu-latest machine
-  build:
+  check_for_main_cpp:
+    name: Check for main.cpp
     runs-on: self-hosted
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Runs a set of commands using the runners shell
-      - name: Check if main.cpp exists
+      - name: Check for File
         run: |
-          if [ -f "mainn.cpp" ]; then
+          if [ -f "main.cpp" ]; then
             echo "main.cpp found." > log.txt
           else
-            echo "Error: main.cpp not found." > log.txt
+            echo "Error: main.cpp not found." > napaka.txt
             exit 1
           fi
+      - name: Upload Error File
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: error
+          path: napaka.txt
+
+  prepare_and_run_tests:
+    name: Prepare Environment and Run Tests
+    needs: check_for_main_cpp
+    runs-on: self-hosted
+    if: success()
+    steps:
+      - name: Download Error File
+        uses: actions/download-artifact@v2
+        with:
+          name: error
+      - name: Check Error File
+        run: |
+          if [ -f "napaka.txt" ]; then
+            cat napaka.txt
+            exit 1
+          else
+            echo "No error detected. Proceeding with test setup." >> log.txt
+          fi
+      - name: Setup Test Environment
+        run: |
+          # Set up the environment for running tests
+          # This could include installing dependencies, configuring databases, etc.
+          echo "Setting up test environment..." >> log.txt
+      - name: Run Tests
+        run: |
+          # Run the tests
+          echo "Running tests..." >> log.txt
