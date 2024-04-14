@@ -53,7 +53,10 @@ jobs:
           sudo apt update
           sudo apt install valgrind -y
           echo "Setting up test environment..." >> log.txt
-          
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
       - name: Run Tests
         run: |
           # Compile the test_main.c file
