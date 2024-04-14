@@ -12,7 +12,7 @@ jobs:
       - name: Check for File
         run: |
           if [ -f "main.cpp" ]; then
-            echo "main.cpp found." > log.txt
+            echo "OK" > napaka.txt
           else
             echo "Error: main.cpp not found." > napaka.txt
             exit 1
@@ -37,10 +37,15 @@ jobs:
       - name: Check Error File
         run: |
           if [ -f "napaka.txt" ]; then
-            echo "No error detected. Proceeding with test setup." >> log.txt
+            error_content=$(cat napaka.txt)
+            if [ "$error_content" == "OK" ]; then
+              echo "No error detected. Proceeding with test setup."
+            else
+              echo "Error: Invalid content in napaka.txt." >&2
+              exit 1
+            fi
           else
-            cat napaka.txt
-            exit 1
+            echo "No error detected. Proceeding with test setup."
           fi
       - name: Setup Test Environment
         run: |
