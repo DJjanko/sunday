@@ -28,7 +28,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Check if main.cpp exists
         run: |
-          if [ -f "main.cpp" ]; then
+          if [ -f "mainn.cpp" ]; then
             echo "main.cpp found." > log.txt
           else
             echo "Error: main.cpp not found." >&2
