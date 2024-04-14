@@ -18,11 +18,11 @@ jobs:
             exit 1
           fi
       - name: Upload Error File
-        if: ${{ failure() }}
         uses: actions/upload-artifact@v2
         with:
           name: error
           path: napaka.txt
+
 
   prepare_and_run_tests:
     name: Prepare Environment and Run Tests
