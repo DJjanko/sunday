@@ -23,7 +23,7 @@ jobs:
       
       - name: Build Docker image
         run: |
-          docker build . --file Dockerfile --tag $DOCKER_USERNAME/Sunday:${{ github.sha }}
+          docker build . --file Dockerfile --tag djjanko/sunday:${{ github.sha }}
       
       - name: Push Docker image to Docker Hub
         run: |
