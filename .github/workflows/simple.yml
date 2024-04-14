@@ -70,3 +70,4 @@ jobs:
           else
             echo "FAILED" >> log.txt
           fi
+          make clean
