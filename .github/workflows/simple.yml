@@ -39,13 +39,13 @@ jobs:
           if [ -f "napaka.txt" ]; then
             error_content=$(cat napaka.txt)
             if [ "$error_content" == "OK" ]; then
-              echo "No error detected. Proceeding with test setup."
+              echo "No error detected. Proceeding with test setup." >> log.txt
             else
-              echo "Error: Invalid content in napaka.txt." >&2
+              echo "Error: Invalid content in napaka.txt." >> log.txt
               exit 1
             fi
           else
-            echo "No error detected. Proceeding with test setup."
+            echo "No error detected. Proceeding with test setup." >> log.txt
           fi
       - name: Setup Test Environment
         run: |
