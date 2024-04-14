@@ -167,7 +167,7 @@ void bubbleSort(std::vector<int>& arr) {
     }
 }
 
-int main(int argc, const char *const argv[]) {
+/*int main(int argc, const char *const argv[]) {
     if (argc != 4) {
         return -1;
     }
@@ -190,3 +190,4 @@ int main(int argc, const char *const argv[]) {
     int x = sestej(1,2);
     return 0;
 }
+*/
