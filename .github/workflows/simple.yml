@@ -28,6 +28,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run:  |
-          echo Hello, World
+          echo Hello, World > log.txt
           sleep 10
-          echo Hello again
+          echo Hello again >> log.txt
