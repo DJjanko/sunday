@@ -56,7 +56,7 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v2
-        
+        #run tests
       - name: Run Tests
         run: |
           # Compile the test_main.c file
