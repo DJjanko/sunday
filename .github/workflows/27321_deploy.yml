@@ -21,6 +21,7 @@ jobs:
       - name: Build Docker image
         run: docker build -t yourusername/yourimagename:latest .
 
+      #potisni sliko
       - name: Push Docker image to Docker Hub
         run: docker push yourusername/yourimagename:latest
 
