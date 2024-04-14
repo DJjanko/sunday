@@ -37,10 +37,10 @@ jobs:
       - name: Check Error File
         run: |
           if [ -f "napaka.txt" ]; then
+            echo "No error detected. Proceeding with test setup." >> log.txt
+          else
             cat napaka.txt
             exit 1
-          else
-            echo "No error detected. Proceeding with test setup." >> log.txt
           fi
       - name: Setup Test Environment
         run: |
