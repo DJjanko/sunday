@@ -5,6 +5,7 @@
 #include "vector"
 using namespace std;
 
+
 ofstream out;
 
 string inputText(const string &pot) {
