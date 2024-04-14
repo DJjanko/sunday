@@ -1,4 +1,4 @@
-name: Check for File and Run Tests
+name: Run Test
 
 on:
   push:
@@ -53,7 +53,21 @@ jobs:
           sudo apt update
           sudo apt install valgrind -y
           echo "Setting up test environment..." >> log.txt
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+        #run tests
       - name: Run Tests
         run: |
-          # Run the tests
-          echo "Running tests..." >> log.txt
+          # Compile the test_main.c file
+          make
+          # Execute the compiled test program
+          ./test_main
+      
+          # Check the contents of result.txt
+          if grep -q "SUCCESS" result.txt; then
+            echo "SUCCESS" >> log.txt
+          else
+            echo "FAILED" >> log.txt
+          fi
+          make clean
