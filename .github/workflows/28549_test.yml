@@ -56,7 +56,7 @@ jobs:
         run: |
           # Set up the environment for running tests
           sudo apt update
-          sudo apt install valgrind -y
+          #sudo apt install valgrind -y
           echo "Setting up test environment..." >> log.txt
 
       - name: Run Tests
