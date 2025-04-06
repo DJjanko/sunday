@@ -56,14 +56,12 @@ jobs:
         run: |
           # Set up the environment for running tests
           #sudo apt-get update
+          sudo apt install make
           #sudo apt-get install valgrind -y
           echo "Setting up test environment..." >> log.txt
 
       - name: Run Tests
         run: |
-          - name: Checkout code
-          uses: actions/checkout@v4
-          
           # Compile the test_main.c file
           make build
           # Execute the compiled test program
