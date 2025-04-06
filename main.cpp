@@ -167,7 +167,7 @@ void bubbleSort(std::vector<int>& arr) {
     }
 }
 
-
+//koment
 
 /*int main(int argc, const char *const argv[]) {
     if (argc != 4) {
