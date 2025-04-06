@@ -61,6 +61,9 @@ jobs:
 
       - name: Run Tests
         run: |
+          - name: Checkout code
+          uses: actions/checkout@v4
+          
           # Compile the test_main.c file
           make build
           # Execute the compiled test program
